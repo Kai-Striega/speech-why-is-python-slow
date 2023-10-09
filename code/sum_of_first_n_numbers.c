@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <inttypes.h>
 
-// To see asm https://godbolt.org/z/sG4o8KfWz
 int main() {
     const uint64_t limit = 6074000999;
     uint64_t total = 0;
