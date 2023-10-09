@@ -1,5 +1,7 @@
-hello:
-	echo "Hello World\n"
+slides:
+	mkdir out
+	touch out/slides.log
+	pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out presentation/slides.tex
 
 time-python:
 	time python code/sum_of_first_n_numbers.py
