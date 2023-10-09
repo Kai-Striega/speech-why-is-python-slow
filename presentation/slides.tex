@@ -1,0 +1,58 @@
+% Preamble
+\documentclass[14pt, aspectration=169]{beamer}
+\usetheme{Copenhagen}
+\usecolortheme{beaver}
+
+\setbeamertemplate{navigation symbols}{}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Why is Python slow?}
+\author{Kai Striega}
+\date{\today}
+
+% Document
+\begin{document}
+
+\maketitle
+\begin{frame}{The Frame}
+    \lstinputlisting[language=Python,label={lst:python}]{../code/sum_of_first_n_numbers.py}
+\end{frame}
+
+\begin{frame}{The Frame}
+    \lstinputlisting[language=C,label={lst:C}]{../code/sum_of_first_n_numbers.c}
+\end{frame}
+
+\begin{frame}{The Frame}
+    \lstinputlisting[language=C,label={lst:C-args}]{../code/sum_of_first_n_numbers_arg.c}
+\end{frame}
+\end{document}
