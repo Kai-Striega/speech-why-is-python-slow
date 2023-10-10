@@ -2,7 +2,10 @@ clean:
 	rm -rf out/
 	rm -rf bin/
 
-slides: clean
+install-texlive:
+	sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
+
+slides: clean install-texlive
 	mkdir out
 	touch out/why_is_python_slow.log
 	pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out why_is_python_slow.tex
