@@ -4,11 +4,11 @@ clean:
 
 slides: clean
 	mkdir out
-	touch out/slides.log
-	pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out presentation/slides.tex
+	touch out/why_is_python_slow.log
+	pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out why_is_python_slow.tex
 
 view: slides
-	evince out/slides.pdf
+	evince out/why_is_python_slow.pdf
 
 compile: clean
 	mkdir bin
