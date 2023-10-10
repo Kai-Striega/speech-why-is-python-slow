@@ -1,22 +1,24 @@
-slides:
+clean:
+	rm -rf out/
+	rm -rf bin/
+
+slides: clean
 	mkdir out
 	touch out/slides.log
 	pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out presentation/slides.tex
 
-time-python:
+view: slides
+	evince out/slides.pdf
+
+compile: clean
+	mkdir bin
+	clang-17 --version
+	clang-17 code/sum_of_first_n_numbers_arg.c -O0 -o bin/sum_of_first_n_numbers_arg_O0
+	clang-17 code/sum_of_first_n_numbers_arg.c -O3 -o bin/sum_of_first_n_numbers_arg_O3
+	clang-17 code/sum_of_first_n_numbers.c -O3 -o bin/sum_of_first_n_numbers_O3
+
+time: compile
+	time bin/sum_of_first_n_numbers_arg_O0 6074000999
+	time bin/sum_of_first_n_numbers_arg_O3 6074000999
+	time bin/sum_of_first_n_numbers_O3
 	time python code/sum_of_first_n_numbers.py
-
-time-c-O3:
-	gcc code/sum_of_first_n_numbers.c -O3 -o sum_of_first_n_numbers
-	time ./sum_of_first_n_numbers
-	rm sum_of_first_n_numbers
-
-time-c-arg-O3:
-	gcc code/sum_of_first_n_numbers_arg.c -O3 -o sum_of_first_n_numbers_arg
-	time ./sum_of_first_n_numbers_arg 6074000999
-	rm sum_of_first_n_numbers_arg
-
-time-c-arg-O0:
-	gcc code/sum_of_first_n_numbers_arg.c -O0 -o sum_of_first_n_numbers_arg
-	time ./sum_of_first_n_numbers_arg 6074000999
-	rm sum_of_first_n_numbers_arg
