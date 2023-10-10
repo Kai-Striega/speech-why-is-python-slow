@@ -6,7 +6,7 @@ slides:
 time-python:
 	time python code/sum_of_first_n_numbers.py
 
-time-c:
+time-c-O3:
 	gcc code/sum_of_first_n_numbers.c -O3 -o sum_of_first_n_numbers
 	time ./sum_of_first_n_numbers
 	rm sum_of_first_n_numbers
