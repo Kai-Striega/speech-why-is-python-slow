@@ -16,7 +16,7 @@ jobs:
       - name: Move
         run: mkdir -p github_artifacts && mv out/${{ env.FILE }}.pdf ./github_artifacts/
       - name: Upload artifacts
-        uses: actions/upload-atrifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ env.FILE }}.pdf
           path: ./github_artifacts
