@@ -1,0 +1,22 @@
+name: write_slides
+on: [push]
+jobs:
+  slides:
+    runs-on: ubuntu-latest
+    env:
+      DIR: .
+      FILE: why_is_python_slow
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: make install-texlive
+      - name: Compile LaTeX
+        run: make slides
+      - name: Move
+        run: mkdir -p github_artifacts && mv out/${{ env.FILE }}.pdf ./github_artifacts/
+      - name: Upload artifacts
+        uses: actions/upload-atrifact@v2
+        with:
+          name: ${{ env.FILE }}.pdf
+          path: ./github_artifacts
