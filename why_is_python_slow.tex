@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{blkarray}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -43,16 +44,79 @@
 % Document
 \begin{document}
 
-\maketitle
-\begin{frame}{The Frame}
-    \lstinputlisting[language=Python,label={lst:python}]{code/sum_of_first_n_numbers.py}
-\end{frame}
+    \maketitle
 
-\begin{frame}{The Frame}
-    \lstinputlisting[language=C,label={lst:C}]{code/sum_of_first_n_numbers.c}
-\end{frame}
+    \begin{frame}{What we're going to do today}
+        \begin{itemize}
+            \item<2-> Answer the question: Why is Python slow?
+            \item<3-> Compare Python to another language C
+            \item<4-> Introduce some of the key ideas in performance analysis
+            \item<5-> Discuss when does execution time matters\ldots and when it doesn't
+        \end{itemize}
+    \end{frame}
 
-\begin{frame}{The Frame}
-    \lstinputlisting[language=C,label={lst:C-args}]{code/sum_of_first_n_numbers_arg.c}
-\end{frame}
+    \begin{frame}{Before I start}
+        \begin{block}{Here be dragons}<2->
+            This talk introduces advanced topics, quickly.
+            The content is designed to stretch your understanding and to challenge you.
+        \end{block}
+        \begin{block}{Questions}<3->
+            I am happy to take questions during the talk, feel free to ask if something doesn't make sense.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}{Today's Example}
+        \lstinputlisting[language=Python,label={lst:python}]{code/sum_of_first_n_numbers.py}
+    \end{frame}
+
+    \begin{frame}{Is Python slow?}
+        \begin{itemize}
+            \item[]<2-> \texttt{time python sum\_of\_first\_n\_numbers.py\newline}
+            \item[]<3-> \texttt{total=18446744064889498501\newline
+            real 5m56.581s\newline
+            user 5m56.518s\newline
+            sys 0m0.004s\newline}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Today's Example, but in C}
+        \lstinputlisting[language=C,label={lst:C}]{code/sum_of_first_n_numbers.c}
+    \end{frame}
+
+    \begin{frame}{What about C?}
+        \begin{itemize}
+            \item[]<2-> \texttt{time bin/sum\_of\_first\_n\_numbers\_O3\newline}
+            \item[]<3-> \texttt{total=18446744064889498501\newline
+            real 0m0.000s\newline
+            user 0m0.000s\newline
+            sys 0m0.000s\newline}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Why?}
+        \begin{itemize}
+            \item \textit{0m0.000s} seems like a bug\ldots but it's not!
+            \item C is a \textbf{compiled} langauge
+            \item That means the compiler can perform optimizations before the code is run
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{What C does}
+        \lstinputlisting[label={lst:asm-O3-no-arg}]{code/sum_clang_17_O3.asm}
+    \end{frame}
+
+    \begin{frame}{Today's Example, in C, with arguments}
+        \lstinputlisting[language=C,label={lst:C-args}]{code/sum_of_first_n_numbers_arg.c}
+    \end{frame}
+
+    \begin{frame}{What C does (with an argument)}
+        \lstinputlisting[label={lst:asm-O3-arg}]{code/sum_arg_clang_17_O3.asm}
+    \end{frame}
+
+    \begin{frame}{What C does (without optimisations)}
+        \lstinputlisting[label={lst:asm-O3-arg-O0}]{code/sum_arg_clang_17_O0.asm}
+    \end{frame}
+
+
+
 \end{document}
