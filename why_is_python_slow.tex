@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage{blkarray}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -176,9 +177,64 @@
     \begin{frame}{What we've done so far}
         \begin{itemize}
             \item We've turned a 6-minute problem into a 2-second problem
-            \item Just by changing language
-            \item This speedup exists even without optimizations enabled
+            \item By changing the language
+            \item This speedup exists even without optimizations
             \item What makes C so much faster than Python?
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{The missing bits\ldots}
+        TODO: Fill this in depending on how much time you have available
+    \end{frame}
+
+    \begin{frame}{Memory Hierarchy}
+        \begin{center}
+            \begin{tabular}{|c c|}
+             \hline
+              & Latency \\ [0.5ex]
+             \hline\hline
+             L1 Cache & $<$1ns \\
+             \hline
+             L2 Cache & 4ns \\
+             \hline
+             Main Memory & 100ns \\
+             \hline
+             SSD & 16 $\mu$s \\ [1ex]
+             \hline
+             Round Trip (Datacenter)   & 0.5ms     \\
+             \hline
+             Round Trip (US to Europe) & 150 ms \\ [1ex]
+             \hline
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Memory Hierarchy}
+        \begin{center}
+            \begin{tabular}{|c c|}
+             \hline
+              & Latency \\ [0.5ex]
+             \hline\hline
+             L1 Cache & $<$1 second \\
+             \hline
+             L2 Cache & 4 seconds \\
+             \hline
+             Main Memory & 100 seconds \\
+             \hline
+             SSD & 4.5 hours \\ [1ex]
+             \hline
+             Round Trip (Datacenter)   & 5.8 days     \\
+             \hline
+             Round Trip (US to Europe) & 5 years \\ [1ex]
+             \hline
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Further Reading}
+        \begin{itemize}
+            \item \url{https://computers-are-fast.github.io/}
+            \item \url{https://colin-scott.github.io/personal_website/research/interactive_latency.html}
         \end{itemize}
     \end{frame}
 \end{document}
