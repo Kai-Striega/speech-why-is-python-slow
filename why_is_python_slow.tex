@@ -190,6 +190,23 @@
         Both interpreting code and memory access patterns are limited by the CPU.
     \end{frame}
 
+    \begin{frame}{What does it take to interpet Python?}
+        \begin{description}
+            \item[Source Code] You start with a Python source code file (typically ending in .py) that contains the instructions you want the computer to execute.
+            \item[Tokenizer] The source code is read by the Python interpreter, which breaks it down into a series of tokens.
+            \item[Parser] This is where the interpreter checks if the arrangement of tokens conforms to the rules of the Python language.
+        \end{description}
+    \end{frame}
+
+    \begin{frame}{What does it take to interpet Python?}
+        \begin{description}
+            \item[AST] An \textit{abstract syntax tree} is a hierarchical representation of the program's structure.
+            The nodes of the tree represent operations, while the edges represent control flow.
+            \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
+            \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
+        \end{description}
+    \end{frame}
+
     \begin{frame}{What the CPU does (Fetch-Execute Cycle)}
         \begin{description}
             \item[Fetch] The CPU fetches the next instruction from the computer's memory based on the value stored in the program counter.
@@ -255,23 +272,6 @@
              \hline
             \end{tabular}
         \end{center}
-    \end{frame}
-
-    \begin{frame}{What does it take to run Python?}
-        \begin{description}
-            \item[Source Code] You start with a Python source code file (typically ending in .py) that contains the instructions you want the computer to execute.
-            \item[Tokenizer] The source code is read by the Python interpreter, which breaks it down into a series of tokens.
-            \item[Parser] This is where the interpreter checks if the arrangement of tokens conforms to the rules of the Python language.
-        \end{description}
-    \end{frame}
-
-    \begin{frame}{What does it take to interpet Python?}
-        \begin{description}
-            \item[AST] An AST is a hierarchical representation of the program's structure.
-            The nodes of the tree represent operations, while the edges represent control flow.
-            \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
-            \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
-        \end{description}
     \end{frame}
 
     \begin{frame}{A Python int is more than a C int}
