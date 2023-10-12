@@ -187,37 +187,31 @@
             \item[Interpreted vs Compiled] Python is \textit{interpreted} $\implies$ CPU has to do extra work to translate the code at runtime
             \item[Memroy Access Patterns] Python stores everything in a \textit{PyObject} this means the CPU can't access data as efficiently
         \end{description}
+        Both interpreting code and memory access patterns are limited by the CPU.
     \end{frame}
 
-    \begin{frame}{What does it take to run Python?}
+    \begin{frame}{What the CPU does (Fetch-Execute Cycle)}
         \begin{description}
-            \item[Source Code] You start with a Python source code file (typically ending in .py) that contains the instructions you want the computer to execute.
-            \item[Tokenizer] The source code is read by the Python interpreter, which breaks it down into a series of tokens.
-            \item[Parser] This is where the interpreter checks if the arrangement of tokens conforms to the rules of the Python language.
+            \item[Fetch] The CPU fetches the next instruction from the computer's memory based on the value stored in the program counter.
+            \item[Decode] The CPU determines what operation needs to be performed and what data (if any) is involved.
+            \item[Execute] The CPU performs the operation specified by the instruction.
         \end{description}
     \end{frame}
 
-    \begin{frame}{What does it take to interpet Python?}
-        \begin{description}
-            \item[AST] An AST is a hierarchical representation of the program's structure.
-            The nodes of the tree represent operations, while the edges represent control flow.
-            \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
-            \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
-        \end{description}
-    \end{frame}
-
-    \begin{frame}{What limits the performance of a CPU?}
+    \begin{frame}{What limits the performance of the CPU?}
         \begin{description}
             \item[Memory Bound] How quickly we can get data to the CPU
             \item[CPU Bound] How quickly the CPU can execute instructions
         \end{description}
     \end{frame}
 
-%    \begin{frame}{What a CPU die looks like}
-%        \begin{center}
-%            \includegraphics[scale=0.35]{static/images/900px-alder_lake_die_2}
-%        \end{center}
-%    \end{frame}
+    \begin{frame}{Performance Considerations}
+        \begin{itemize}
+            \item Want to get data from the \textit{fastest} possible source
+            \item Usually that will be a \textit{cache} or \textit{memory} (RAM)
+            \item Want to avoid network access as much as possible
+        \end{itemize}
+    \end{frame}
 
     \begin{frame}{Memory Latencies}
         \begin{center}
@@ -260,6 +254,39 @@
              Round Trip (US to Europe) & 5 years \\ [1ex]
              \hline
             \end{tabular}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{What does it take to run Python?}
+        \begin{description}
+            \item[Source Code] You start with a Python source code file (typically ending in .py) that contains the instructions you want the computer to execute.
+            \item[Tokenizer] The source code is read by the Python interpreter, which breaks it down into a series of tokens.
+            \item[Parser] This is where the interpreter checks if the arrangement of tokens conforms to the rules of the Python language.
+        \end{description}
+    \end{frame}
+
+    \begin{frame}{What does it take to interpet Python?}
+        \begin{description}
+            \item[AST] An AST is a hierarchical representation of the program's structure.
+            The nodes of the tree represent operations, while the edges represent control flow.
+            \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
+            \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
+        \end{description}
+    \end{frame}
+
+    \begin{frame}{A Python int is more than a C int}
+        \begin{itemize}
+            \item Everything in Python is an \textit{Object}
+            \item An object is represented as a \textit{PyObject} in C code
+            \item[] \begin{center}
+                      \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
+            \end{center}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{This extends to more complex data structures}
+        \begin{center}
+              \includegraphics[scale=0.25]{static/images/array_vs_list}
         \end{center}
     \end{frame}
 
