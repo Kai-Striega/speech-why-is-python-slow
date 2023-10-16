@@ -115,25 +115,6 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Assembly}
-        \begin{itemize}
-            \item I'm about to show you a language called \textit{Assembly}
-            \item Assembly corresponds to the CPU's machine instructions
-            \item a.k.a.\ the instructions the CPU is executing
-            \item Assembly is specific to your CPU architecture
-        \end{itemize}
-
-        \begin{alertblock}{Assembly}<2->
-            Assembly is a new topic that you (probably) won't have to know in depth.
-            It is included here to analyse the code being run by C, but you won't have to remember the in and outs of
-            assembly.
-        \end{alertblock}
-    \end{frame}
-
-    \begin{frame}{What C does}
-        \lstinputlisting[label={lst:asm-O3-no-arg}]{static/code/sum_clang_17_O3.asm}
-    \end{frame}
-
     \begin{frame}{Today's Example, in C, with arguments}
         \lstinputlisting[language=C,label={lst:C-args}]{code/sum_of_first_n_numbers_arg.c}
     \end{frame}
@@ -148,20 +129,12 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{What C does (with an argument)}
-        \lstinputlisting[label={lst:asm-O3-arg}]{static/code/sum_arg_clang_17_O3.asm}
-    \end{frame}
-
     \begin{frame}{What has the compiler done for me lately?}
         \begin{itemize}
             \item There's an alternate way to calculate the sum of the first $n$ numbers:
             \item[] \[\frac{n(n + 1)}{2}\]
             \item The compiler transformed the algorithm from one with linear runtime to constant runtime
         \end{itemize}
-    \end{frame}
-
-    \begin{frame}{What C does (without optimizations)}
-        \lstinputlisting[label={lst:asm-O3-arg-O0}]{static/code/sum_arg_clang_17_O0.asm}
     \end{frame}
 
     \begin{frame}{What if we don't use optimizations?}
