@@ -255,10 +255,16 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{A Python int is more than a C int}
+    \begin{frame}{What is a PyObject?}
         \begin{itemize}
             \item Everything in Python is an \textit{Object}
             \item An object is represented as a \textit{PyObject} in C code
+            \item You can think of a PyObject as a wrapper around the data and some metadata
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{A Python int is more than a C int}
+        \begin{itemize}
             \item[] \begin{center}
                   \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
             \end{center}
