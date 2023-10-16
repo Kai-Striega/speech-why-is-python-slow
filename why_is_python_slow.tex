@@ -72,6 +72,7 @@
             \column{0.55\textwidth}
             \begin{itemize}
                 \item C is \textit{very} fast
+                \item C is compiled
                 \item CPython is written in C
                 \item Many Python extensions are written in C
             \end{itemize}
@@ -79,6 +80,13 @@
             \includegraphics[scale=0.35]{static/images/390px-Curiosity_Self-Portrait_at_'Big_Sky'_Drilling_Site}
         \end{columns}
     \end{frame}
+
+    \begin{frame}{What is a \textit{compiled} language?}
+        \begin{center}
+            \includegraphics[scale=0.45]{static/images/compiled.drawio}
+        \end{center}
+    \end{frame}
+
     \begin{frame}{Today's Example}
         \lstinputlisting[language=Python,label={lst:python}]{code/sum_of_first_n_numbers.py}
     \end{frame}
@@ -252,7 +260,7 @@
             \item Everything in Python is an \textit{Object}
             \item An object is represented as a \textit{PyObject} in C code
             \item[] \begin{center}
-                      \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
+                  \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
             \end{center}
         \end{itemize}
     \end{frame}
