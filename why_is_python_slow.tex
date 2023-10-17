@@ -60,10 +60,10 @@
 
     \begin{frame}{What we're going to do today}
         \begin{itemize}
-            \item<2-> Answer the question: Why is Python slow?
-            \item<3-> Compare Python to C and assembly
-            \item<4-> Introduce some of the key ideas in performance analysis
-            \item<5-> Discuss when execution time matters\ldots and when it doesn't
+            \item Answer the question: Why is Python slow?
+            \item Compare Python to C and assembly
+            \item Introduce some of the key ideas in performance analysis
+            \item Discuss when execution time matters\ldots and when it doesn't
         \end{itemize}
     \end{frame}
 
@@ -117,9 +117,18 @@
 
     \begin{frame}{Why?}
         \begin{itemize}
-            \item \textit{0m0.000s} seems like a bug\ldots but it's not!
+            \item \textit{0m0.000s} seems like a bug\ldots it's not!
             \item C is a \textbf{compiled} langauge
-            \item That means the compiler can perform optimizations before the code is run
+            \item The compiler can perform optimizations on the code
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Optimising Compilers}
+        \begin{itemize}
+            \item Our problem is always going to have the same answer
+            \item The compiler is able to notice this
+            \item And calculates the result ahead of time
+            \item So how do we get around this?
         \end{itemize}
     \end{frame}
 
