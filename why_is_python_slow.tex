@@ -61,7 +61,7 @@
     \begin{frame}{What we're going to do today}
         \begin{itemize}
             \item Answer the question: Why is Python slow?
-            \item Compare Python to C and assembly
+            \item Compare Python to C
             \item Introduce some of the key ideas in performance analysis
             \item Discuss when execution time matters\ldots and when it doesn't
         \end{itemize}
@@ -85,6 +85,21 @@
         \begin{center}
             \includegraphics[scale=0.45]{static/images/compiled.drawio}
         \end{center}
+    \end{frame}
+
+    \begin{frame}{What the CPU does (Fetch-Execute Cycle)}
+        \begin{description}
+            \item[Fetch] The CPU fetches the next instruction from the computer's memory based on the value stored in the program counter.
+            \item[Decode] The CPU determines what operation needs to be performed and what data (if any) is involved.
+            \item[Execute] The CPU performs the operation specified by the instruction.
+        \end{description}
+    \end{frame}
+
+    \begin{frame}{What limits the performance of the CPU?}
+        \begin{description}
+            \item[Memory Bound] How quickly we can get data to the CPU
+            \item[CPU Bound] How quickly the CPU can execute instructions
+        \end{description}
     \end{frame}
 
     \begin{frame}{Today's Example}
@@ -132,28 +147,6 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Today's Example, in C, with arguments}
-        \lstinputlisting[language=C,label={lst:C-args}]{code/sum_of_first_n_numbers_arg.c}
-    \end{frame}
-
-    \begin{frame}{What about with an argument?}
-        \begin{itemize}
-            \item[]<2-> \texttt{time bin/sum\_of\_first\_n\_numbers\_arg\_O3\newline}
-            \item[]<3-> \texttt{total=18446744064889498501\newline
-            real 0m0.000s\newline
-            user 0m0.000s\newline
-            sys 0m0.000s\newline}
-        \end{itemize}
-    \end{frame}
-
-    \begin{frame}{What has the compiler done for me lately?}
-        \begin{itemize}
-            \item There's an alternate way to calculate the sum of the first $n$ numbers:
-            \item[] \[\frac{n(n + 1)}{2}\]
-            \item The compiler transformed the algorithm from one with linear runtime to constant runtime
-        \end{itemize}
-    \end{frame}
-
     \begin{frame}{What if we don't use optimizations?}
         \begin{itemize}
             \item[]<2-> \texttt{time bin/sum\_of\_first\_n\_numbers\_arg\_O0\newline}
@@ -194,21 +187,6 @@
             The nodes of the tree represent operations, while the edges represent control flow.
             \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
             \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
-        \end{description}
-    \end{frame}
-
-    \begin{frame}{What the CPU does (Fetch-Execute Cycle)}
-        \begin{description}
-            \item[Fetch] The CPU fetches the next instruction from the computer's memory based on the value stored in the program counter.
-            \item[Decode] The CPU determines what operation needs to be performed and what data (if any) is involved.
-            \item[Execute] The CPU performs the operation specified by the instruction.
-        \end{description}
-    \end{frame}
-
-    \begin{frame}{What limits the performance of the CPU?}
-        \begin{description}
-            \item[Memory Bound] How quickly we can get data to the CPU
-            \item[CPU Bound] How quickly the CPU can execute instructions
         \end{description}
     \end{frame}
 
