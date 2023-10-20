@@ -183,27 +183,18 @@
 
     \begin{frame}{What makes C so much faster than Python?}
         \begin{description}
-            \item[Interpreted vs Compiled] Python is \textit{interpreted} $\implies$ CPU has to do extra work to translate the code at runtime
-            \item[Memroy Access Patterns] Python stores everything in a \textit{PyObject} this means the CPU can't access data as efficiently
-        \end{description}
-        Both interpreting code and memory access patterns are limited by the CPU.
-    \end{frame}
-
-    \begin{frame}{What does it take to interpet Python?}
-        \begin{description}
-            \item[Source Code] You start with a Python source code file (typically ending in .py) that contains the instructions you want the computer to execute.
-            \item[Tokenizer] The source code is read by the Python interpreter, which breaks it down into a series of tokens.
-            \item[Parser] This is where the interpreter checks if the arrangement of tokens conforms to the rules of the Python language.
+            \item[Interpreting vs Compiling]
+            \item[Memroy Access Patterns]
+            \item[Dynamic vs Static Typing]
         \end{description}
     \end{frame}
 
-    \begin{frame}{What does it take to interpet Python?}
-        \begin{description}
-            \item[AST] An \textit{abstract syntax tree} is a hierarchical representation of the program's structure.
-            The nodes of the tree represent operations, while the edges represent control flow.
-            \item[Semantic Analysis] The interpreter now checks the AST for semantic correctness.
-            \item[Execution] The Python interpreter executes the code by walking through the AST and performing the operations specified by the source code.
-        \end{description}
+    \begin{frame}{Interpeting Python}
+        \begin{itemize}
+            \item Python is an \textit{interpreted} language
+            \item That means that we use an interpreter to translate Python code to machine code at runtime
+            \item Interpreting adds significant overhead to the CPU
+        \end{itemize}
     \end{frame}
 
     \begin{frame}{Memory Latencies}
@@ -258,14 +249,6 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{What is a PyObject?}
-        \begin{itemize}
-            \item Everything in Python is an \textit{Object}
-            \item An object is represented as a \textit{PyObject} in C code
-            \item You can think of a PyObject as a wrapper around the data and some metadata
-        \end{itemize}
-    \end{frame}
-
     \begin{frame}{A Python int is more than a C int}
         \begin{itemize}
             \item[] \begin{center}
@@ -280,6 +263,14 @@
         \end{center}
     \end{frame}
 
+    \begin{frame}{Dynamic Typing}
+        \begin{itemize}
+            \item In Python, you don't need to explicitly declare the type of a variable
+            \item The type of a variable is determined at runtime based on the value it is assigned
+            \item This means the interpreter needs to check the type of \textbf{every} object at runtime
+        \end{itemize}
+
+    \end{frame}
     \begin{frame}{Python's slowness doesn't matter}
         \begin{itemize}
             \item The number of problems where Python is \textit{truly} the bottleneck is very small
