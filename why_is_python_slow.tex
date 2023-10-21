@@ -184,8 +184,8 @@
     \begin{frame}{What makes C so much faster than Python?}
         \begin{description}
             \item[Interpreting vs Compiling]
-            \item[Memroy Access Patterns]
             \item[Dynamic vs Static Typing]
+            \item[Memroy Access Patterns]
         \end{description}
     \end{frame}
 
@@ -194,6 +194,36 @@
             \item Python is an \textit{interpreted} language
             \item That means that we use an interpreter to translate Python code to machine code at runtime
             \item Interpreting adds significant overhead to the CPU
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Dynamic Typing}
+        \begin{itemize}
+            \item In Python, you don't need to explicitly declare the type of a variable
+            \item The type of a variable is determined at runtime based on the value it is assigned
+            \item This means the interpreter needs to check the type of \textbf{every} object at runtime
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{A Python int is more than a C int}
+        \begin{itemize}
+            \item[] \begin{center}
+                  \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
+            \end{center}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{This extends to more complex data structures}
+        \begin{center}
+              \includegraphics[scale=0.25]{static/images/array_vs_list}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Performance Considerations}
+        \begin{itemize}
+            \item Want to get data from the \textit{fastest} possible source
+            \item Usually that will be a \textit{cache} or \textit{memory} (RAM)
+            \item Want to avoid network access as much as possible
         \end{itemize}
     \end{frame}
 
@@ -241,36 +271,6 @@
         \end{center}
     \end{frame}
 
-    \begin{frame}{Performance Considerations}
-        \begin{itemize}
-            \item Want to get data from the \textit{fastest} possible source
-            \item Usually that will be a \textit{cache} or \textit{memory} (RAM)
-            \item Want to avoid network access as much as possible
-        \end{itemize}
-    \end{frame}
-
-    \begin{frame}{A Python int is more than a C int}
-        \begin{itemize}
-            \item[] \begin{center}
-                  \includegraphics[scale=0.5]{static/images/cint_vs_pyint}
-            \end{center}
-        \end{itemize}
-    \end{frame}
-
-    \begin{frame}{This extends to more complex data structures}
-        \begin{center}
-              \includegraphics[scale=0.25]{static/images/array_vs_list}
-        \end{center}
-    \end{frame}
-
-    \begin{frame}{Dynamic Typing}
-        \begin{itemize}
-            \item In Python, you don't need to explicitly declare the type of a variable
-            \item The type of a variable is determined at runtime based on the value it is assigned
-            \item This means the interpreter needs to check the type of \textbf{every} object at runtime
-        \end{itemize}
-
-    \end{frame}
     \begin{frame}{Python's slowness doesn't matter}
         \begin{itemize}
             \item The number of problems where Python is \textit{truly} the bottleneck is very small
