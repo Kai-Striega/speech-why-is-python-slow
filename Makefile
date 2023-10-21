@@ -3,6 +3,7 @@ clean:
 	rm -rf bin/
 
 install-texlive:
+	sudo apt-get update
 	sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
 
 slides: clean install-texlive
