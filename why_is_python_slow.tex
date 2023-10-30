@@ -80,6 +80,12 @@
         \end{columns}
     \end{frame}
 
+    \begin{frame}{What is a \textit{compiled} langauge}
+        \begin{center}
+            \includegraphics[scale=0.25]{static/images/how_python_works}
+        \end{center}
+    \end{frame}
+
     \begin{frame}{What the Central Processing Unit (CPU) does}
         \begin{itemize}
             \item The CPU is responsible for executing instructions provided by software programs
@@ -175,26 +181,22 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{What makes C so much faster than Python?}
-        \begin{description}
-            \item[Interpreting vs Compiling]
-            \item[Dynamic vs Static Typing]
-            \item[Memroy Access Patterns]
-        \end{description}
-    \end{frame}
-
-    \begin{frame}{Interpreting vs Compiling}
+    \begin{frame}{Why?}
         \begin{center}
-            \includegraphics[scale=0.25]{static/images/how_python_works}
+            \begin{columns}
+                \column{0.65\textwidth}
+                \begin{itemize}
+                    \item Interpreted
+                    \item Dynamically Typed
+                    \item Global Interpreter Lock
+                    \item Language Design
+                    \item Flexibility
+                    \item Memory Organisation
+                \end{itemize}
+                \column{0.35\textwidth}
+                \includegraphics[scale=0.45]{static/images/big_question_mark}
+            \end{columns}
         \end{center}
-    \end{frame}
-
-    \begin{frame}{Dynamic Typing}
-        \begin{itemize}
-            \item In Python, you don't need to explicitly declare the type of a variable
-            \item The type of a variable is determined at runtime based on the value it is assigned
-            \item This means the interpreter needs to check the type of \textbf{every} object at runtime
-        \end{itemize}
     \end{frame}
 
     \begin{frame}{PyObjects and memory access}
